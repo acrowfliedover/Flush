@@ -1,4 +1,5 @@
 exports.users = [
+  /*
   {
     email: 'demo1@gmail.com',
     firstName: 'Jessica',
@@ -88,7 +89,9 @@ exports.users = [
     lastName: 'Fisher',
     profilePictureURL:
       'https://instamobile.io/wp-content/uploads/2022/04/brian-lawson-y0qfp-alqs0-unsplash.jpg',
+      
   },
+  */
 ]
 
 exports.commmonPhotos = [
