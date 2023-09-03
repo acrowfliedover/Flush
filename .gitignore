@@ -25,3 +25,8 @@ doc/api/
 
 .flutter-plugins
 .flutter-plugins-dependencies
+
+/flutter_universal_listings/.dart_tool/
+/flutter_universal_listings/android/
+/flutter_universal_listings/build/
+/flutter_universal_listings/ios/
