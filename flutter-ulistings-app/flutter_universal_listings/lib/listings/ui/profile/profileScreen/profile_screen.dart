@@ -41,9 +41,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    //testing
-    print(currentUser.firstName);
-    print(currentUser.favoriteBathroom);
     return Scaffold(
       appBar: Platform.isIOS
           ? AppBar(

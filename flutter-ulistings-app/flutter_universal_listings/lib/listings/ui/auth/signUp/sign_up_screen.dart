@@ -14,6 +14,7 @@ import 'package:instaflutter/listings/ui/container/container_screen.dart';
 import 'package:instaflutter/core/ui/loading/loading_cubit.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:instaflutter/constants.dart';
+import 'package:instaflutter/listings/ui/auth/signUp/favorite_bathroom_prompts.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -30,7 +31,6 @@ class _SignUpState extends State<SignUpScreen> {
   String? firstName, lastName, email, password, confirmPassword, favoriteBathroom;
   AutovalidateMode _validate = AutovalidateMode.disabled;
   bool acceptEULA = true;
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider<SignUpBloc>(
@@ -306,7 +306,7 @@ class _SignUpState extends State<SignUpScreen> {
                                 },
                                 cursorColor: Color(colorPrimary),
                                 decoration: getInputDecoration(
-                                  hint: 'What\'s your favorite bathroom you\'ve used?'.tr(),
+                                  hint: RandomFavoriteBathroomPrompt().getPrompt().tr(),
                                   darkMode: isDarkMode(context),
                                   errorColor:
                                       Theme.of(context).colorScheme.error,
