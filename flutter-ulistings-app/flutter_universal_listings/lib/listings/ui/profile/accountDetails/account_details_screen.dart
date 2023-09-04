@@ -45,7 +45,8 @@ class _AccountDetailsScreenState extends State<AccountDetailsScreen> {
   late ListingsUser user;
   final GlobalKey<FormState> _key = GlobalKey();
   AutovalidateMode _validate = AutovalidateMode.disabled;
-  String? firstName, email, mobile, lastName;
+  //added favoriteBathroom
+  String? firstName, email, mobile, lastName, favoriteBathroom;
 
   @override
   void initState() {
@@ -55,6 +56,7 @@ class _AccountDetailsScreenState extends State<AccountDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(colorPrimary),
@@ -79,6 +81,8 @@ class _AccountDetailsScreenState extends State<AccountDetailsScreen> {
                   lastName: lastName!,
                   emailAddress: email!,
                   phoneNumber: mobile!,
+                  //added favoriteBathroom
+                  favoriteBathroom:favoriteBathroom!,
                 ));
           } else if (state is ReauthRequiredState) {
             bool result = await showDialog(
@@ -111,6 +115,8 @@ class _AccountDetailsScreenState extends State<AccountDetailsScreen> {
                     lastName: lastName!,
                     emailAddress: email!,
                     phoneNumber: mobile!,
+                    //added favoriteBathroom
+                    favoriteBathroom:favoriteBathroom!,
                   ));
             }
           } else if (state is UpdatingDataState) {
@@ -222,7 +228,44 @@ class _AccountDetailsScreenState extends State<AccountDetailsScreen> {
                                               vertical: 5)),
                                 ),
                               ),
+                            ),
+                            //add section Favorite Bathroom
+                            ListTile(
+                              title: Text(
+                                'Favorite Bathroom',
+                                style: TextStyle(
+                                  color: isDarkMode(context)
+                                      ? Colors.white
+                                      : Colors.black,
+                                ),
+                              ).tr(),
+                              trailing: ConstrainedBox(
+                                constraints:
+                                    const BoxConstraints(maxWidth: 100),
+                                child: TextFormField(
+                                  onSaved: (String? val) {
+                                    favoriteBathroom = val;
+                                  },
+                                  initialValue: user.favoriteBathroom,
+                                  textAlign: TextAlign.end,
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: isDarkMode(context)
+                                          ? Colors.white
+                                          : Colors.black),
+                                  cursorColor: Color(colorAccent),
+                                  textCapitalization: TextCapitalization.words,
+                                  keyboardType: TextInputType.text,
+                                  decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      hintText: 'Favorite Bathroom'.tr(),
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                              vertical: 5)),
+                                ),
+                              ),
                             )
+                            //added above
                           ]).toList())),
                   Padding(
                     padding: const EdgeInsets.only(

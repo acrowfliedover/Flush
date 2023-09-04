@@ -14,7 +14,7 @@ class ListingsUser extends User {
     userID = '',
     profilePictureURL = '',
     firstName = '',
-    phoneNumber = '',
+    phoneNumber = '1',
     lastName = '',
     active = false,
     lastOnlineTimestamp,
@@ -24,6 +24,8 @@ class ListingsUser extends User {
     favoriteBathroom='',
     this.isAdmin = false,
     this.likedListingsIDs = const [],
+    
+
   }) : super(
           firstName: firstName,
           lastName: lastName,
@@ -32,14 +34,15 @@ class ListingsUser extends User {
           email: email,
           pushToken: pushToken,
           phoneNumber: phoneNumber,
+          //added
+          favoriteBathroom: favoriteBathroom,
           profilePictureURL: profilePictureURL,
           settings: settings ?? UserSettings(),
           lastOnlineTimestamp: lastOnlineTimestamp is int
               ? lastOnlineTimestamp
               : Timestamp.now().seconds,
           appIdentifier: '$appName ${Platform.operatingSystem}',
-          //added
-          favoriteBathroom: favoriteBathroom
+          
         );
 
   factory ListingsUser.fromJson(Map<String, dynamic> parsedJson) {
@@ -56,6 +59,8 @@ class ListingsUser extends User {
           : UserSettings(),
       phoneNumber: parsedJson['phoneNumber'] ?? '',
       userID: parsedJson['id'] ?? parsedJson['userID'] ?? '',
+      //added favorite bathroom
+      favoriteBathroom: parsedJson['favoriteBathroom']??'',
       profilePictureURL: parsedJson['profilePictureURL'] ?? '',
       pushToken: parsedJson['pushToken'] ?? '',
       isAdmin: parsedJson['isAdmin'] ?? false,
@@ -80,7 +85,7 @@ class ListingsUser extends User {
       'pushToken': pushToken,
       'isAdmin': isAdmin,
       'likedListingsIDs': likedListingsIDs,
-      //added
+      //added favoriteBathroom
       'favoriteBathroom': favoriteBathroom
 
     };

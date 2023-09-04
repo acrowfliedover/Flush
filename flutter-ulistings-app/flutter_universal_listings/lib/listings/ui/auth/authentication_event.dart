@@ -34,13 +34,17 @@ class SignupWithEmailAndPasswordEvent extends AuthenticationEvent {
   File? image;
   String? firstName;
   String? lastName;
-
+  //added favoriteBathroom
+  String? favoriteBathroom;
   SignupWithEmailAndPasswordEvent(
       {required this.emailAddress,
       required this.password,
       this.image,
       this.firstName = 'Anonymous',
-      this.lastName = 'User'});
+      this.lastName = 'User',
+      //added favoriteBathroom
+      this.favoriteBathroom='.home'
+      });
 }
 
 class LogoutEvent extends AuthenticationEvent {

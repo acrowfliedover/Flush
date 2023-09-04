@@ -84,7 +84,8 @@ class AuthenticationBloc
               phoneNumber: event.phoneNumber,
               firstName: event.firstName,
               lastName: event.lastName,
-              image: event.image);
+              image: event.image,
+              );
       if (result is ListingsUser) {
         user = result;
         emit(AuthenticationState.authenticated(result));
@@ -99,7 +100,11 @@ class AuthenticationBloc
               password: event.password,
               image: event.image,
               firstName: event.firstName,
-              lastName: event.lastName);
+              lastName: event.lastName,
+              //added favoriteBathroom
+              favoriteBathroom: event.favoriteBathroom
+              );
+              
       if (result != null && result is ListingsUser) {
         user = result;
         emit(AuthenticationState.authenticated(user!));
@@ -116,6 +121,8 @@ class AuthenticationBloc
     });
     on<LogoutEvent>((event, emit) async {
       await authenticationRepository.logout(event.user);
+      //testing
+      print(user?.favoriteBathroom);
       user = null;
       emit(AuthenticationState.unauthenticated());
     });

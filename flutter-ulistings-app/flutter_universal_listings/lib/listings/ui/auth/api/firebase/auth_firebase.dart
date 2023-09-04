@@ -220,7 +220,9 @@ class AuthFirebaseUtils extends AuthenticationRepository {
       required String password,
       File? image,
       firstName = 'Anonymous',
-      lastName = 'User'}) async {
+      lastName = 'User',
+      favoriteBathroom='firehome'
+      }) async {
     try {
       auth.UserCredential result = await auth.FirebaseAuth.instance
           .createUserWithEmailAndPassword(
@@ -239,6 +241,8 @@ class AuthFirebaseUtils extends AuthenticationRepository {
           firstName: firstName,
           userID: result.user?.uid ?? '',
           lastName: lastName,
+          //added favoriteBathroom
+          favoriteBathroom:favoriteBathroom,
           pushToken: await firebaseMessaging.getToken() ?? '',
           profilePictureURL: profilePicUrl);
       String? errorMessage = await _createNewUser(user);

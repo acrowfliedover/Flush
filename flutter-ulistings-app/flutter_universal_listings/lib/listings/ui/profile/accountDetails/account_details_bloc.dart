@@ -49,6 +49,8 @@ class AccountDetailsBloc
             lastName: event.lastName,
             emailAddress: event.emailAddress,
             phoneNumber: event.phoneNumber,
+            //added favoriteBathroom
+            favoriteBathroom: event.favoriteBathroom,
           ));
         }
       } else {
@@ -58,6 +60,8 @@ class AccountDetailsBloc
           lastName: event.lastName,
           emailAddress: event.emailAddress,
           phoneNumber: event.phoneNumber,
+          //added favoriteBathroom
+          favoriteBathroom: event.favoriteBathroom,
         ));
       }
     });
@@ -66,6 +70,8 @@ class AccountDetailsBloc
       currentUser.lastName = event.lastName;
       currentUser.email = event.emailAddress;
       currentUser.phoneNumber = event.phoneNumber;
+      //added favoriteBathroom
+      currentUser.favoriteBathroom = event.favoriteBathroom;
       await profileRepository.updateCurrentUser(currentUser);
       emit(UserDataUpdatedState(updatedUser: currentUser));
     });

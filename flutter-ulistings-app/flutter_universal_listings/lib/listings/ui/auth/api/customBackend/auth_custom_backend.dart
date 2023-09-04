@@ -74,7 +74,9 @@ class AuthCustomBackendUtils extends AuthenticationRepository {
       required String password,
       File? image,
       firstName = 'Anonymous',
-      lastName = 'User'}) {
+      lastName = 'User',
+      //added favoriteBathroom
+      favoriteBathroom='.home'}) {
     // TODO: implement signUpWithEmailAndPassword
     throw UnimplementedError();
   }

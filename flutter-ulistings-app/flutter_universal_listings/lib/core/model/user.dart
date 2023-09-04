@@ -51,6 +51,7 @@ class User with ChangeNotifier {
         settings = settings ?? UserSettings(),
         appIdentifier =
             appIdentifier ?? 'Instaflutter ${Platform.operatingSystem}';
+        
             
 
   String fullName() {
